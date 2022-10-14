@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailUser"
+    android:orientation="vertical"
+    android:padding="40dp"
+    android:layout_marginTop="50dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="User Preference"
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal"
+        android:textSize="36dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/tanggalLahir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="24sp"
+        android:background="@drawable/border"
+        android:hint="Masukkan tanggal lahir"
+        android:layout_marginTop="60dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pilih kategori:"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"/>
+
+    <Spinner
+        android:id="@+id/label_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:background="@drawable/border"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="5dp"/>
+
+    <Button
+        android:id="@+id/btnShowBerita"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:layout_marginTop="60dp"
+        android:text="Lihat Berita" />
+
+</LinearLayout>

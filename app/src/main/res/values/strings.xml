@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">UTS_PPPB</string>
+    <string-array name="labels_array">
+        <item>Olahraga</item>
+        <item>Entertainment</item>
+        <item>Politik</item>
+    </string-array>
+</resources>
