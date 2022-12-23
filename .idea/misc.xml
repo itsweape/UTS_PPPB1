@@ -3,6 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/NewsApps/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.109" />
+        <entry key="..\:/Android/NewsApps/app/src/main/res/drawable/ic_baseline_bookmark_24.xml" value="0.141" />
+        <entry key="..\:/Android/NewsApps/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.141" />
+        <entry key="..\:/Android/NewsApps/app/src/main/res/layout/activity_berita_bookmark.xml" value="0.1" />
+        <entry key="..\:/Android/NewsApps/app/src/main/res/layout/activity_berita_recycler_view.xml" value="0.2" />
+        <entry key="..\:/Android/NewsApps/app/src/main/res/layout/activity_bookmark_berita.xml" value="0.1" />
+        <entry key="..\:/Android/NewsApps/app/src/main/res/layout/activity_detail_berita.xml" value="0.1921875" />
+        <entry key="..\:/Android/NewsApps/app/src/main/res/layout/activity_detail_user.xml" value="0.1765625" />
+        <entry key="..\:/Android/NewsApps/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Android/NewsApps/app/src/main/res/layout/activity_register.xml" value="0.22" />
+        <entry key="..\:/Android/NewsApps/app/src/main/res/layout/activity_tambah_berita.xml" value="0.18" />
+        <entry key="..\:/Android/NewsApps/app/src/main/res/layout/activity_update_berita.xml" value="0.18" />
+        <entry key="..\:/Android/NewsApps/app/src/main/res/layout/data_berita.xml" value="0.22" />
+        <entry key="..\:/Android/NewsApps/app/src/main/res/layout/data_berita_bookmark.xml" value="0.22" />
+        <entry key="..\:/Android/NewsApps/app/src/main/res/layout/edit_form.xml" value="0.17346014492753623" />
+        <entry key="..\:/Android/UTS_PPPB/app/src/main/res/layout/data_berita.xml" value="0.2" />
         <entry key="..\:/Users/WIN 10/AndroidStudioProjects/UTS_PPPB/app/src/main/res/drawable/border.xml" value="0.1" />
         <entry key="..\:/Users/WIN 10/AndroidStudioProjects/UTS_PPPB/app/src/main/res/layout/activity_berita_recycler_view.xml" value="0.18" />
         <entry key="..\:/Users/WIN 10/AndroidStudioProjects/UTS_PPPB/app/src/main/res/layout/activity_detail_berita.xml" value="0.15260416666666668" />
@@ -10,7 +26,7 @@
         <entry key="..\:/Users/WIN 10/AndroidStudioProjects/UTS_PPPB/app/src/main/res/layout/activity_detail_user.xml" value="0.1921875" />
         <entry key="..\:/Users/WIN 10/AndroidStudioProjects/UTS_PPPB/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/WIN 10/AndroidStudioProjects/UTS_PPPB/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/WIN 10/AndroidStudioProjects/UTS_PPPB/app/src/main/res/layout/data_berita.xml" value="0.1921875" />
+        <entry key="..\:/Users/WIN 10/AndroidStudioProjects/UTS_PPPB/app/src/main/res/layout/data_berita.xml" value="0.25" />
       </map>
     </option>
   </component>

@@ -1,9 +1,15 @@
 package com.example.uts_pppb;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.DialogFragment;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,23 +22,29 @@ public class DetailUser extends AppCompatActivity implements AdapterView.OnItemS
 
     EditText tanggal_lahir;
     Spinner spinner;
-    Button btnBerita;
+    Button btnBerita, btnLogout;
     String Spinners;
+
+    private SharedPreferences SharedPref;
+    private final String sharedPrefFile = "com.example.sharedpreferenceapp";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_user);
 
+        SharedPref = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+
         tanggal_lahir = findViewById(R.id.tanggalLahir);
         spinner = findViewById(R.id.label_spinner);
         btnBerita = findViewById(R.id.btnShowBerita);
+        btnLogout = findViewById(R.id.btnLogout);
 
         if(spinner != null){
             spinner.setOnItemSelectedListener(this);
         }
 
-        //menampilkan spinner
+        //menampilkan teks spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.labels_array, android.R.layout.simple_spinner_item);
         spinner.setAdapter(adapter);
@@ -63,6 +75,15 @@ public class DetailUser extends AppCompatActivity implements AdapterView.OnItemS
                 startActivity(intent);
             }
         });
+
+        //button logout
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clearLogin();
+                finish();
+            }
+        });
     }
 
     //method memproses datepicker
@@ -89,5 +110,12 @@ public class DetailUser extends AppCompatActivity implements AdapterView.OnItemS
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    //menghapus riwayat login
+    private void clearLogin(){
+        SharedPreferences.Editor editor = SharedPref.edit();
+        editor.clear();
+        editor.apply();
     }
 }

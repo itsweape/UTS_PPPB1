@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,6 +9,7 @@
     android:padding="20dp">
 
     <TextView
+        android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Berita Terkait"
@@ -19,24 +20,65 @@
         android:textStyle="bold"/>
 
     <ImageView
+        android:id="@+id/imv"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginTop="20dp"
-        android:src="@drawable/img"/>
+        android:src="@drawable/img"
+        android:layout_below="@+id/tv"/>
 
-    <TextView
-        android:id="@+id/kategori"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/ktg_show"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Kategori"
-        android:textSize="18sp"
-        android:layout_marginTop="30dp"
-        android:textStyle="bold"/>
+        android:orientation="horizontal"
+        android:layout_below="@+id/imv">
+        <TextView
+            android:id="@+id/kategori"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kategori: "
+            android:textSize="18sp"
+            android:layout_marginTop="30dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/imv"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/kategories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kategori"
+            android:textSize="18sp"
+            android:layout_marginTop="30dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/imv"
+            android:layout_weight="8"/>
+        <ImageButton
+            android:id="@+id/btn_bookmarks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_bookmarks_24"
+            android:layout_marginTop="30dp"
+            android:background="@color/white"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_berita"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"/>
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/ktg_show"/>
 
-</LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:backgroundTint="@color/purple_200"
+        android:src="@drawable/ic_baseline_add_24">
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+</RelativeLayout>

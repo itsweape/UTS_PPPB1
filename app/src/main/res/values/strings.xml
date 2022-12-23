@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UTS_PPPB</string>
+    <string name="app_name">NewsApps</string>
     <string-array name="labels_array">
         <item>Olahraga</item>
         <item>Entertainment</item>

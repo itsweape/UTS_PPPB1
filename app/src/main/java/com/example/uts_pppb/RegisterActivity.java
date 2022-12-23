@@ -1,7 +1,6 @@
 package com.example.uts_pppb;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
@@ -9,9 +8,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -26,13 +23,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LoginActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
-//    String username="pakjoko";
-//    String password="yangpentingcuan";
-    EditText txtUser, txtPass;
-    TextView blmDaftar;
-    Button login;
+    EditText email, password, confirmPassword;
+    TextView haveAccount;
+    Button register;
     String emailValidation = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     ProgressDialog progressDialog;
 
@@ -45,21 +40,17 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
 
-    boolean loginn = false;
-
-    private SharedPreferences SharedPref;
-    private final String sharedPrefFile = "com.example.sharedpreferenceapp";
-
-    private final String LOGIN_KEY = "login-key";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        txtUser = findViewById(R.id.username);
-        txtPass = findViewById(R.id.password);
-        login = findViewById(R.id.btnLogin);
-        blmDaftar = findViewById(R.id.daftar);
+        setContentView(R.layout.activity_register);
+
+        email = findViewById(R.id.email_register);
+        password = findViewById(R.id.password_register);
+        confirmPassword = findViewById(R.id.confirm_password);
+        register = findViewById(R.id.btnRegister);
+        haveAccount = findViewById(R.id.login);
+
         progressDialog = new ProgressDialog(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -73,76 +64,59 @@ public class LoginActivity extends AppCompatActivity {
             mNotificationManager.createNotificationChannel(notificationChannel);
         }
 
-        SharedPref = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
-        loginn = SharedPref.getBoolean(LOGIN_KEY, false);
-
-        if (loginn){
-            Intent intent = new Intent(LoginActivity.this, DetailUser.class);
-            startActivity(intent);
-        }
-
-        blmDaftar.setOnClickListener(new View.OnClickListener() {
+        haveAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
 
-        login.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                if(txtUser.getText().toString().equals(username)&&txtPass.getText().toString().equals(password)){
-//                    startActivity(new Intent(LoginActivity.this, DetailUser.class));
-//                }else{
-//                    showAlertDialog();
-//                }
-                login();
+                Auth();
             }
         });
     }
-    private void login(){
-        String ema = txtUser.getText().toString();
-        String pass = txtPass.getText().toString();
+    private void Auth(){
+        String ema = email.getText().toString();
+        String pass = password.getText().toString();
+        String conf_pass = confirmPassword.getText().toString();
 
         if (!ema.matches(emailValidation)){
-            txtUser.setError("Maskkan email dengan karakter yang sesuai");
-
+            email.setError("Maskkan email dengan benar");
         }else if(pass.isEmpty() || pass.length()<6){
-            txtPass.setError("Password harus lebih dari 6 karakter");
+            password.setError("Password hars lebih dari 6 karakter");
+        }else if(!pass.equals(conf_pass)){
+            confirmPassword.setError("Password tidak sama");
         }else{
-            progressDialog.setMessage("Tunggu hingga proses login selesai");
-            progressDialog.setTitle("Login");
+            firebaseAuth.createUserWithEmailAndPassword(ema, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful()){
+                        progressDialog.dismiss();
+                        showLoginActivity();
+                    }else{
+                        progressDialog.dismiss();
+                        Toast.makeText(RegisterActivity.this, "" +task.getException() ,Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+            progressDialog.setMessage("Tunggu hingga proses registrasi selesai");
+            progressDialog.setTitle("Registration");
             progressDialog.setCanceledOnTouchOutside(false);
             progressDialog.show();
-        }
 
-        firebaseAuth.signInWithEmailAndPassword(ema, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    progressDialog.dismiss();
-                    loginn = true;
-                    showDetailUserActivity();
-                    saveLogin();
-                } else{
-                    progressDialog.dismiss();
-                    showAlertDialog();
-                }
-            }
-        });
+        }
     }
-    private void showDetailUserActivity(){
+    private void showLoginActivity(){
         sendNotification();
-        Intent intent = new Intent(LoginActivity.this, DetailUser.class);
+        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
-    private void saveLogin(){
-        SharedPreferences.Editor editor = SharedPref.edit();
-        editor.putBoolean(LOGIN_KEY, loginn);
-        editor.apply();
-    }
+
     private NotificationCompat.Builder getNotificationBuilder(){
 
         Intent notificationIntent = new Intent(this, DetailUser.class);
@@ -151,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
 
         NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("New Notification!")
-                .setContentText("Login Berhasil")
+                .setContentText("Register Berhasil")
                 .setSmallIcon(R.drawable.ic_android)
                 .setContentIntent(notificationPendingIntent);
         return notifyBuilder;
@@ -166,17 +140,5 @@ public class LoginActivity extends AppCompatActivity {
 
         mNotificationManager.notify(NOTIFICATION_ID, notifyBuilder.build());
     }
-    public void showAlertDialog(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);
-        alert.setTitle("Peringatan!");
-        alert.setMessage("Username dan Password yang anda masukkan salah!");
-        alert.setPositiveButton("Coba lagi", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                txtUser.setText("");
-                txtPass.setText("");
-            }
-        });
-        alert.show();
-    }
+
 }

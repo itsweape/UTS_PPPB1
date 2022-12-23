@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,58 +8,72 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <TextView
-        android:id="@+id/txt_judul"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="Sample Title"/>
-
-
-    <TextView
-        android:id="@+id/txt_kategori"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_marginTop="30dp"
-        android:text="Sample Kategori"/>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <TextView
-            android:id="@+id/txt_penulis"
+            android:id="@+id/txt_judul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="Sample Title"/>
+
+
+        <TextView
+            android:id="@+id/txt_kategori"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:text="penulis"
-            android:layout_weight="1"
-            android:layout_marginTop="10dp"/>
-        <TextView
-            android:id="@+id/txt_tglrilis"
+            android:layout_marginTop="30dp"
+            android:text="Sample Kategori"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/txt_penulis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="penulis"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:id="@+id/txt_tglrilis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_weight="1"
+                android:text="tanggal rilis"
+                android:layout_marginTop="10dp"/>
+        </LinearLayout>
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:layout_weight="1"
-            android:text="tanggal rilis"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/txt_konten"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                android:ellipsize="end"/>
+        </ScrollView>
     </LinearLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatsBtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:backgroundTint="@color/purple_200"
+        android:src="@drawable/ic_baseline_edit_24">
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
-        <TextView
-            android:id="@+id/txt_konten"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-            android:ellipsize="end"/>
-    </ScrollView>
-
-</LinearLayout>
+</RelativeLayout>

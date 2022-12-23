@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".DetailUser"
     android:orientation="vertical"
-    android:padding="40dp"
-    android:layout_marginTop="50dp">
+    android:padding="25dp">
 
     <TextView
         android:layout_width="match_parent"
@@ -15,24 +14,32 @@
         android:text="User Preference"
         android:textAlignment="center"
         android:layout_gravity="center_horizontal"
-        android:textSize="36dp"
+        android:textSize="32dp"
         android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Input Tanggal Lahir:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"/>
 
     <EditText
         android:id="@+id/tanggalLahir"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:background="@drawable/border"
         android:hint="Masukkan tanggal lahir"
-        android:layout_marginTop="60dp"/>
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Pilih kategori:"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginTop="30dp"/>
 
@@ -53,7 +60,17 @@
         android:layout_centerHorizontal="true"
         android:padding="10dp"
         android:textSize="20sp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="70dp"
         android:text="Lihat Berita" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:text="Logout" />
 
 </LinearLayout>

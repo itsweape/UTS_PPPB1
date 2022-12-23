@@ -14,17 +14,32 @@
         android:theme="@style/Theme.UTS_PPPB"
         tools:targetApi="31">
         <activity
+            android:name=".UpdateBeritaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BeritaBookmarkActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BookmarkBeritaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TambahBeritaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetailBerita"
             android:exported="true"
-            android:parentActivityName=".BeritaRecyclerView"/>
+            android:parentActivityName=".BeritaRecyclerView" />
         <activity
             android:name=".BeritaRecyclerView"
             android:exported="true"
-            android:parentActivityName=".DetailUser"/>
+            android:parentActivityName=".DetailUser" />
         <activity
             android:name=".DetailUser"
             android:exported="true"
-            android:parentActivityName=".LoginActivity"/>
+            android:parentActivityName=".LoginActivity" />
         <activity
             android:name=".LoginActivity"
             android:exported="true">

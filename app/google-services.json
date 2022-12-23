@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "480575824172",
+    "firebase_url": "https://news-auth-4ba2f-default-rtdb.firebaseio.com",
+    "project_id": "news-auth-4ba2f",
+    "storage_bucket": "news-auth-4ba2f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480575824172:android:b6d380e4f132930f798c89",
+        "android_client_info": {
+          "package_name": "com.example.uts_pppb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "480575824172-mnskml4f93o9tgck22ffoesp1vgs9lvj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZz1H0CSvpqzRSo0giScq4soiPgETSZhY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "480575824172-mnskml4f93o9tgck22ffoesp1vgs9lvj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
